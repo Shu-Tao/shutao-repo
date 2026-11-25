@@ -1,6 +1,6 @@
 Package: com.shutao.pluginmanager
 Name: 插件管理
-Version: 1.5.6
+Version: 1.5.7
 Architecture: iphoneos-arm64
 Description: 独立 App 形式的越狱插件管理器：列出所有注入型插件，逐项开关（重命名 dylib 与 Filter plist），并提供重启 SpringBoard（注销）与重启用户空间使改动生效。不内嵌于设置，不注入任何进程。
 Depends: firmware (>= 15.0)
@@ -8,9 +8,9 @@ Section: Utilities
 Priority: optional
 Maintainer: Shu-Tao
 Author: Shu-Tao
-Installed-Size: 691
-Filename: ./debs/com.shutao.pluginmanager_1.5.6_iphoneos-arm64.deb
-Size: 147628
-SHA256: bcd126a8ae943617d2450db1bd4a6a0e9ca5fd115bef0dc50ee5a891f67fa53c
-SHA1: 403f045ff626a8995a3aaee7543250d40560be1c
-MD5sum: 720a3ed67d5b0793c13922d5f16f6e10
+Installed-Size: 692
+Filename: ./debs/com.shutao.pluginmanager_1.5.7_iphoneos-arm64.deb
+Size: 148268
+SHA256: 5157836269b3855e06f3228078d368f82074110c279d9e894b5c32ea6e829fd7
+SHA1: e356eb01fe8844a715c5e22e8832e22644e8078c
+MD5sum: 61990dc225ce88abaffa2b4ae40777cc
