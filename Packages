@@ -1,3 +1,20 @@
+Package: com.shutao.crashlogger
+Name: 崩溃日志
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: 收集并导出 iOS 崩溃日志（.ips / .panic）。独立 App + 命令行工具 crashlog，纯文字界面，不依赖任何系统图标。
+Depends: firmware (>= 15.0)
+Section: Utilities
+Priority: optional
+Maintainer: Shu-Tao
+Author: Shu-Tao
+Installed-Size: 223
+Filename: ./debs/com.shutao.crashlogger_1.0.0_iphoneos-arm64.deb
+Size: 19520
+SHA256: 41735177202433d27e79deeffbc06f852447b2fb058e30f7a88d5d79f42bf2c2
+SHA1: c295a51c9d36ab8661a8c033c12cffd607b8c68d
+MD5sum: 9f879c8a5baa70b291a03d79c43f9df1
+
 Package: com.shutao.pluginmanager
 Name: 插件管理
 Version: 1.5.9
