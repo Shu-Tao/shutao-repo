@@ -6,3 +6,19 @@ Codename: ios
 Architectures: iphoneos-arm64
 Components: main
 Description: 蜀洮自用的越狱插件源
+Date: Wed, 25 Nov 2026 01:10:32 GMT
+MD5Sum:
+ 8b20f70a15983be9e242b02f7e196d23 725 Packages
+ 87651eaca8831a3c51ecb008d28ea1e6 595 Packages.gz
+ f59708dfc6e957128ba4b7baf1c50fd1 642 Packages.bz2
+ 2f670923712eee813f4f7cada15ed903 616 Packages.xz
+SHA1:
+ b40a212eae858345d6eb6162b8839fbebd27f73c 725 Packages
+ 6220514ea1297a1ee270af6cf790a0b3153880ed 595 Packages.gz
+ ea3c09daad938fbdcdfd1e07083424bc53824474 642 Packages.bz2
+ 8dbc0bfae3c7d419d97cf943d9246833770a7a38 616 Packages.xz
+SHA256:
+ a95283746293c4f625d658c86372f988c52c774cdccfedde27edb966a3394a95 725 Packages
+ 3fafb39cdabca91baa0a47e3c82299993b4d0c9fdba147728bafa3a04a428f8a 595 Packages.gz
+ bd44ed43790dd09e1fcf2b305ce3c34accba3ba9ee71fdad356280b12b79b6e9 642 Packages.bz2
+ 7612267a60537e5ffa55eb4cef30fa9f65bca189d210921c016c681f37208e00 616 Packages.xz

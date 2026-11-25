@@ -12,6 +12,7 @@ import lzma
 import os
 import sys
 import tarfile
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBS = os.path.join(ROOT, "debs")
@@ -144,7 +145,7 @@ def main():
         print("nothing to index")
         return 1
 
-    raw = ("\n\n".join(stanzas) + "\n").encode("utf-8")
+    raw = ("\n\n".join(stanzas) + "\n\n").encode("utf-8")  # 标准格式：以空行结尾
 
     with open(os.path.join(ROOT, "Packages"), "wb") as fh:
         fh.write(raw)
@@ -154,8 +155,35 @@ def main():
         fh.write(bz2.compress(raw))
     with open(os.path.join(ROOT, "Packages.xz"), "wb") as fh:
         fh.write(lzma.compress(raw))
+    # Release 需要带上 Packages 各格式的校验和。缺这些段时，
+    # 部分 APT 版本会认为索引不可信而跳过整个源。
+    release_lines = [RELEASE_META.rstrip("\n")]
+    release_lines.append("Date: %s" % time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime()))
+
+    files_info = []
+    for fname in ("Packages", "Packages.gz", "Packages.bz2", "Packages.xz"):
+        p = os.path.join(ROOT, fname)
+        if not os.path.isfile(p):
+            continue
+        with open(p, "rb") as fh:
+            blob = fh.read()
+        files_info.append((fname, len(blob),
+                           hashlib.md5(blob).hexdigest(),
+                           hashlib.sha1(blob).hexdigest(),
+                           hashlib.sha256(blob).hexdigest()))
+
+    release_lines.append("MD5Sum:")
+    for name, size, md5v, _, _ in files_info:
+        release_lines.append(" %s %d %s" % (md5v, size, name))
+    release_lines.append("SHA1:")
+    for name, size, _, sha1v, _ in files_info:
+        release_lines.append(" %s %d %s" % (sha1v, size, name))
+    release_lines.append("SHA256:")
+    for name, size, _, _, sha256v in files_info:
+        release_lines.append(" %s %d %s" % (sha256v, size, name))
+
     with open(os.path.join(ROOT, "Release"), "wb") as fh:
-        fh.write(RELEASE_META.encode("utf-8"))
+        fh.write(("\n".join(release_lines) + "\n").encode("utf-8"))
 
     print("")
     print("index built: %d packages" % len(stanzas))
